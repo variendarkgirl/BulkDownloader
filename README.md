@@ -1,8 +1,9 @@
 # Instagram Video and Reels Downloader
 
 A simple GUI application built with Python using Tkinter and Instaloader for downloading videos and reels from Instagram profiles.
-![image](https://github.com/user-attachments/assets/eba925aa-a31b-4da0-9c80-f52dc6ff3fa5) 
-![image](https://github.com/user-attachments/assets/1be874d7-f1b2-4ce1-a99f-20a2c8e0f3ad)
+
+
+![image](https://github.com/user-attachments/assets/eba925aa-a31b-4da0-9c80-f52dc6ff3fa5)
 
 
 ## Features
