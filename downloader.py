@@ -53,7 +53,7 @@ class InstagramDownloaderApp:
             video_count = len(videos)
             reel_count = len(reels)
 
-            self.output_text.insert(tk.END, f"Found {video_count} videos and {reel_count} reels on Instagram.\n")
+            self.output_text.insert(tk.END, f"Downloaded {video_count} videos and {reel_count} reels on Instagram.\n")
 
             if content_type == "Videos":
                 self.download_instagram_content(L, videos, "Videos")
