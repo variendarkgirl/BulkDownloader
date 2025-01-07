@@ -23,14 +23,14 @@ A simple GUI application built with Python using Tkinter and Instaloader for dow
    ```bash
    git clone https://github.com/variendarkgirl/BulkDownloader
    cd instagram-video-reels-downloader
-   ```bash
+   
 2. Install the required packages:
 
-  ```bash pip install instaloader
+  pip install instaloader
 
 ## Usage
 Run the application:
-  ```bash python app.py
+  python app.py
 Select the type of content you want to download (Videos or Reels) from the dropdown menu.
 
 Enter the profile link of the Instagram account from which you want to download content.
