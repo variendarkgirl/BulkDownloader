@@ -2,8 +2,7 @@
 
 A simple GUI application built with Python using Tkinter and Instaloader for downloading videos and reels from Instagram profiles.
 
-
-![image](https://github.com/user-attachments/assets/eba925aa-a31b-4da0-9c80-f52dc6ff3fa5)
+![image](https://github.com/user-attachments/assets/5f4253b1-11aa-4b3c-aa21-3e355eb33afa)
 
 
 ## Features
