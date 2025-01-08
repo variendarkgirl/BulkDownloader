@@ -1,4 +1,4 @@
-# Facebook Video Downloader
+# Facebook Videos and Reels Downloader
 
 A Python application with a graphical user interface for downloading videos and reels from Facebook. This tool allows you to easily download public Facebook videos and reels without requiring login credentials.
 
