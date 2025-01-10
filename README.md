@@ -1,4 +1,4 @@
-# Instagram Bulk Video and Reels Downloader
+# Social Media Bulk Downloader and Media Scrapper
 
 A simple GUI application built with Python using Tkinter and Instaloader for downloading videos and reels from Instagram profiles.
 
