@@ -4,7 +4,7 @@ A simple GUI application built with Python using Tkinter and Instaloader for bul
 
 ![image](https://github.com/user-attachments/assets/e25a62f7-dc18-4885-b02b-cf9c09829821)
      
- 
+  
 
 ## Features
 
