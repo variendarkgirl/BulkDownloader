@@ -1,6 +1,6 @@
 # Social Media Bulk Downloader and Media Scrapper
 
-A simple GUI application built with Python using Tkinter and Instaloader for downloading videos and reels from Instagram profiles.
+A simple GUI application built with Python using Tkinter and Instaloader for bulk/mass downloading/scrapping Photos, Videos, Playlists and reels from different Social Media profiles.
 
 ![image](https://github.com/user-attachments/assets/e25a62f7-dc18-4885-b02b-cf9c09829821)
 
