@@ -71,6 +71,9 @@ The script operates in two phases:
    - Downloads each image in original quality
    - Implements delays to prevent browser throttling
    - Shows real-time download progress
+  
+   ![image](https://github.com/user-attachments/assets/b107832b-1417-4659-8e37-4effbcd6cd87)
+
 
 ### Configuration
 The script includes several customizable parameters:
