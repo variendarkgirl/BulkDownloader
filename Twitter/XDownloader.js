@@ -13,7 +13,7 @@ async function downloadTwitterImagesHD() {
         font-family: Arial;
         min-width: 300px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    `;
+    `; 
     document.body.appendChild(status);
 
     const downloadedUrls = new Set();
