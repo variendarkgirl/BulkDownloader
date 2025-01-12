@@ -135,4 +135,7 @@ For support, please open an issue in the GitHub repository.
   - Batch download support
 
 ### Author
+variendarkgirl
+
+### Contributor
 Str1k3r0p
