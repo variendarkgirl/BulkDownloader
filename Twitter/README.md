@@ -27,7 +27,7 @@ Twitter Media Downloader is a browser-based script that automatically scans and 
 
 ### Installation
 1. No installation required! This is a browser-based script.
-2. Copy the entire script code provided at XDownloader[https://github.com/variendarkgirl/BulkDownloader/blob/main/Twitter/XDownloader.js.
+2. Copy the entire script code provided at https://github.com/variendarkgirl/BulkDownloader/blob/main/Twitter/XDownloader.js.
 
 ### Usage Instructions
 
