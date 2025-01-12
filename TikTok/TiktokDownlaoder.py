@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-import os
+import os 
 
 class TiktokDownloaderApp:
     def __init__(self, root):
