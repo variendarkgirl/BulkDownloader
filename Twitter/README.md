@@ -2,7 +2,7 @@
 
 A JavaScript-based tool that allows you to download all images from a Twitter/X profile's media tab in high definition. The script runs directly in your browser's console and doesn't require any external dependencies.
 
-![image](https://github.com/user-attachments/assets/a6a0ee21-a37c-46a9-8105-57e78d4e1c89)
+![image](https://github.com/user-attachments/assets/0366120e-c84b-41f3-a3ec-efbcd90872df)
 
 
 ## Short Description
@@ -71,8 +71,8 @@ The script operates in two phases:
    - Downloads each image in original quality
    - Implements delays to prevent browser throttling
    - Shows real-time download progress
-  
-   ![image](https://github.com/user-attachments/assets/b107832b-1417-4659-8e37-4effbcd6cd87)
+
+  ![image](https://github.com/user-attachments/assets/72b00753-412a-4fa5-b1a8-f7fca38e6a3f)
 
 
 ### Configuration
