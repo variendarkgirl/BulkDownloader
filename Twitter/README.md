@@ -4,7 +4,7 @@ A JavaScript-based tool that allows you to download all images from a Twitter/X 
 
 ![image](https://github.com/user-attachments/assets/0366120e-c84b-41f3-a3ec-efbcd90872df)
 
-
+ 
 ## Short Description
 Twitter Media Downloader is a browser-based script that automatically scans and downloads all images from a Twitter profile's media tab while maintaining their original HD quality. It features a user-friendly interface with progress tracking, batch downloading capabilities, and the ability to pause/stop the download process at any time.
 
