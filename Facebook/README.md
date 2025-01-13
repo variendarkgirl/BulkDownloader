@@ -5,7 +5,7 @@ A Python application with a graphical user interface for downloading videos and 
 ![image](https://github.com/user-attachments/assets/e898ffe6-4503-45c0-b35d-a9aa396bbde7)
 
 
-## Features
+## Features 
 
 - Simple and intuitive graphical user interface
 - Download public Facebook videos and reels
