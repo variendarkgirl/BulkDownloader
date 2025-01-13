@@ -3,7 +3,7 @@ from tkinter import messagebox
 import instaloader
 import os
 
-class InstagramDownloaderApp:
+class InstagramDownloaderApp: 
     def __init__(self, root):
         self.root = root
         self.root.title("Instagram Video and Reels Downloader")
