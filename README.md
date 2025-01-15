@@ -21,7 +21,7 @@ A simple GUI application built with Python using Tkinter and Instaloader for bul
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository: 
 
    ```bash
    git clone https://github.com/variendarkgirl/BulkDownloader
