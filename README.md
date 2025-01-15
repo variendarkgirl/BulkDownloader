@@ -6,7 +6,7 @@ A simple GUI application built with Python using Tkinter and Instaloader for bul
      
   
      
-## Features
+## Features     
 
 - Download videos and reels from public Instagram profiles. 
 - User-friendly GUI built with Tkinter.
