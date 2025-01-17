@@ -1,4 +1,4 @@
-# Instagram Image Downloader HD           
+# Instagram Image Downloader HD             
 
 This script allows you to download all visible images from an Instagram profile page in high definition. It uses dynamic scrolling to load additional images and offers a batch download feature.
 
