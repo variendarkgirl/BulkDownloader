@@ -1,6 +1,6 @@
 // Google Developer Console Script for Bulk Downloading Instagram Media
 
-async function downloadInstagramMedia() {
+async function downloadInstagramMedia() { 
     // Create status display
     const status = document.createElement('div');
     status.style = `
