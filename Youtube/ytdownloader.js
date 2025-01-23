@@ -1,4 +1,3 @@
-// Bulk YouTube Media Extractor
 // Run this script in the console while viewing a YouTube channel or playlist page.
 
 (async function extractYouTubeMedia() {
