@@ -1,5 +1,5 @@
 // Run this script in the console while viewing a YouTube channel or playlist page.
-
+ 
 (async function extractYouTubeMedia() {
     const statusDiv = document.createElement('div');
     statusDiv.style = `
