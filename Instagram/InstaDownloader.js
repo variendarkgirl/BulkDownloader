@@ -1,5 +1,4 @@
 // Google Developer Console Script for Bulk Downloading Instagram Media
-// Run this script in the console while viewing an Instagram profile page.
 
 async function downloadInstagramMedia() {
     // Create status display
