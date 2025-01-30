@@ -12,7 +12,7 @@
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/e5f2b827-ebaf-4f29-bd06-f3b46bdc4dc0)
+![image](https://github.com/user-attachments/assets/e6407291-2356-48de-88e3-b6a0b19b6479)
 
 *Main interface featuring platform selection buttons.*
 
