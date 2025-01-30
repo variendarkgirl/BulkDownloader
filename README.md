@@ -2,7 +2,8 @@
 
 A simple GUI application built with Python using Tkinter and Instaloader for bulk/mass downloading/scrapping Photos, Videos, Playlists and reels from different Social Media profiles.
 
-![image](https://github.com/user-attachments/assets/e25a62f7-dc18-4885-b02b-cf9c09829821)
+![image](https://github.com/user-attachments/assets/861ae2e8-5bab-4469-a9fa-196e6364b88f)
+
        
       
       
