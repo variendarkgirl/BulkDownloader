@@ -1,11 +1,9 @@
-# Social Media Bulk Downloader and Media Scrapper
+# Social Media Content Downloader and Media Scrapper
 
-A simple GUI application built with Python using Tkinter and Instaloader for bulk/mass downloading/scrapping Photos, Videos, Playlists and reels from different Social Media profiles.
+Google developer tool, Console based scripts for bulk/mass downloading/scrapping Photos, Videos, Playlists and reels from different Social Media profiles.
 
 ![image](https://github.com/user-attachments/assets/861ae2e8-5bab-4469-a9fa-196e6364b88f)
-
-       
-      
+ 
       
 ## Features     
 
