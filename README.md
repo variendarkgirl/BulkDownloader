@@ -4,73 +4,79 @@ Google developer tool, Console based scripts for bulk/mass downloading/scrapping
 
 ![image](https://github.com/user-attachments/assets/861ae2e8-5bab-4469-a9fa-196e6364b88f)
  
-      
-## Features     
+ # Social Media Content Downloader
 
-- Download videos and reels from public Instagram profiles. 
-- User-friendly GUI built with Tkinter.
-- Automatically organizes downloaded content into directories.
-- Sanitizes filenames to ensure compatibility with the file system.
+## Overview
 
-## Requirements
+**Social Media Content Downloader** is a web-based tool that enables users to download media content from popular social platforms, including Facebook, Instagram, YouTube, Twitter, and TikTok. The application offers a seamless and intuitive interface for easy navigation and content retrieval directly from a web browser.
 
-- Python 3.12
-- `tkinter` (included with standard Python installations)
-- `instaloader` (for downloading content)
+## Features
 
-## Installation
+- **User-Friendly Interface** – Modern and clean UI with smooth animations.
+- **Multi-Platform Support** – Download content from Facebook, Instagram, YouTube, Twitter, and TikTok.
+- **Responsive Design** – Optimized for both desktop and mobile devices.
 
-1. Clone the repository: 
+## Screenshots
 
+![Main Interface](path_to_screenshot_1.png)
+*Main interface featuring platform selection buttons.*
+
+## Installation & Setup
+
+### Prerequisites
+
+- A modern web browser (Chrome, Firefox, Safari, etc.).
+- An active internet connection.
+
+### Running Locally
+
+1. **Clone the Repository**
    ```bash
-   git clone https://github.com/variendarkgirl/BulkDownloader
-   cd BulkDownloader
+   git clone https://github.com/your-username/social-media-content-downloader.git
+   cd social-media-content-downloader
    ```
 
-2. Install the required package:
-
+2. **Open the Application**
+   Open `index.html` in your preferred web browser:
    ```bash
-   pip install instaloader
-   pip install tinker
+   open index.html  # macOS/Linux
+   ```
+   *or*
+   ```bash
+   start index.html  # Windows
    ```
 
 ## Usage
 
-1. Run the application:
-
-   ```bash
-   python downloader.py
-   ```
-
-2. Select the type of content you want to download (Videos or Reels) from the dropdown menu.
-
-3. Enter the profile link of the Instagram account from which you want to download content.
-
-4. Click on the "Submit" button to start the download process.
-
-5. The output will be displayed in the text area, showing the status of each downloaded video or reel.
-
-### Example
-
-- Select "Videos" from the dropdown.
-- Enter a profile link like `https://www.instagram.com/username/`.
-- Click "Submit".
-- The application will download the videos and display a message for each successfully downloaded video.
-
-## Important Notes
-
-- The application can only download content from public Instagram profiles.
-- Make sure you have sufficient permissions to download content from the specified profiles.
+1. **Choose a Social Platform** – Click on the button corresponding to the platform from which you want to download content.
+2. **Follow Instructions** – Each platform page provides detailed steps on how to download media.
 
 ## Contributing
 
-Contributions are welcome! If you would like to contribute to this project, please fork the repository and create a new branch for your feature or bug fix. Then, submit a pull request with a description of your changes.
+Contributions are welcome! To contribute:
+
+- Fork the repository.
+- Make your improvements and commit with clear messages.
+- Submit a pull request for review.
+
+### Contribution Guidelines
+
+- Maintain coding consistency with the existing project.
+- Ensure thorough testing before submitting changes.
+- Write descriptive commit messages.
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the [MIT License](LICENSE).
 
-## Acknowledgments
+## Contact
 
-- Instaloader - A tool to download Instagram photos, videos, and metadata.
+For inquiries or feedback, reach out via:
+
+- **Email**: your.email@example.com
+- **GitHub**: [your-github-profile](https://github.com/your-username)
+
+---
+
+*Replace placeholders such as `path_to_screenshot_1.png`, `your-username`, `your.email@example.com`, and `[your-github-profile]` with actual details relevant to your project.*
 
