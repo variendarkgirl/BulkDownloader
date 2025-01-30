@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Content Downloader</title>
+    <style>
+        /* Previous styles remain the same until .download-card */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 8px 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-button {
+            background-color: #e4e6eb;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-right: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .download-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            background: #f0f2f5;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            background: transparent;
+            color: #65676b;
+            transition: all 0.3s ease;
+        }
+
+        .mode-btn.active {
+            background: #ffffff;
+            color: #1877f2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .download-section {
+            display: none;
+        }
+
+        .download-section.active {
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .url-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .help-text {
+            font-size: 13px;
+            color: #65676b;
+            margin-top: 8px;
+            padding: 8px;
+            background: #f7f8fa;
+            border-radius: 6px;
+            border-left: 4px solid #1877f2;
+        }
+
+        .code-block {
+            background: #1c1e21;
+            color: #ffffff;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            margin-top: 12px;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .steps-container {
+            margin-top: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: #f7f8fa;
+            border-radius: 8px;
+        }
+
+        .step-number {
+            background: #1877f2;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <button class="back-button" onclick="window.location.href='index.html'">←</button>
+        <div class="facebook-logo">facebook</div>
+    </nav>
+
+    <div class="main-container">
+        <div class="download-card">
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="single">Single Download</button>
+                <button class="mode-btn" data-mode="bulk">Bulk Profile Download</button>
+            </div>
+
+            <!-- Single Download Section -->
+            <div class="download-section active" id="single-download">
+                <h2>Download Single Post/Video/Story</h2>
+                <div class="input-group">
+                    <input type="text" class="url-input" placeholder="Paste Facebook post/video/story URL">
+                    <div class="help-text">
+                        How to download:
+                        1. Copy the code below
+                        2. Open the Facebook post/video in a new tab
+                        3. Press F12 to open DevTools
+                        4. Paste the code in the Console tab and press Enter
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode('single')">Copy</button>
+                        <code id="single-code">
+                            // Facebook Single Content Download Script
+                            (function(){
+                                const videoElement = document.querySelector('video');
+                                if(videoElement) {
+                                    const videoUrl = videoElement.src;
+                                    const a = document.createElement('a');
+                                    a.href = videoUrl;
+                                    a.download = 'facebook-video.mp4';
+                                    document.body.appendChild(a);
+                                    a.click();
+                                    document.body.removeChild(a);
+                                } else {
+                                    const imgElement = document.querySelector('img[data-visualcompletion="media-vc-image"]');
+                                    if(imgElement) {
+                                        const imgUrl = imgElement.src;
+                                        const a = document.createElement('a');
+                                        a.href = imgUrl;
+                                        a.download = 'facebook-image.jpg';
+                                        document.body.appendChild(a);
+                                        a.click();
+                                        document.body.removeChild(a);
+                                    }
+                                }
+                            })();
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bulk Download Section -->
+            <div class="download-section" id="bulk-download">
+                <h2>Download All Profile Content</h2>
+                <div class="input-group">
+                    <input type="text" class="url-input" placeholder="Paste Facebook profile/page URL">
+                    <div class="help-text">
+                        How to download all content:
+                        1. Open the profile/page
+                        2. Copy the code below
+                        3. Open DevTools (F12)
+                        4. Paste in Console and press Enter
+                        5. Wait for the script to scroll and collect all content
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode('bulk')">Copy</button>
+                        <code id="bulk-code">
+                            // Facebook Bulk Profile Download Script
+                            (async function(){
+                                const delay = ms => new Promise(res => setTimeout(res, ms));
+                                const mediaUrls = new Set();
+                                
+                                // Scroll to load all content
+                                async function scrollToBottom() {
+                                    const scrollHeight = () => document.documentElement.scrollHeight;
+                                    let lastHeight = scrollHeight();
+                                    
+                                    while(true) {
+                                        window.scrollTo(0, scrollHeight());
+                                        await delay(1000);
+                                        
+                                        const newHeight = scrollHeight();
+                                        if(newHeight === lastHeight) break;
+                                        lastHeight = newHeight;
+                                    }
+                                }
+                                
+                                // Collect all media URLs
+                                function collectMediaUrls() {
+                                    document.querySelectorAll('video').forEach(video => {
+                                        if(video.src) mediaUrls.add(video.src);
+                                    });
+                                    
+                                    document.querySelectorAll('img[data-visualcompletion="media-vc-image"]').forEach(img => {
+                                        if(img.src) mediaUrls.add(img.src);
+                                    });
+                                }
+                                
+                                // Download all collected URLs
+                                function downloadAll() {
+                                    mediaUrls.forEach(url => {
+                                        const a = document.createElement('a');
+                                        a.href = url;
+                                        a.download = url.split('/').pop() || 'facebook-media';
+                                        document.body.appendChild(a);
+                                        a.click();
+                                        document.body.removeChild(a);
+                                    });
+                                }
+                                
+                                console.log('Starting content collection...');
+                                await scrollToBottom();
+                                collectMediaUrls();
+                                console.log(`Found ${mediaUrls.size} media items`);
+                                downloadAll();
+                            })();
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Enable pop-ups</strong> in your browser settings if they're blocked
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Log in to Facebook</strong> in your browser before using the scripts
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        For bulk downloads, <strong>be patient</strong> as the script scrolls to load all content
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mode switching
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update buttons
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update sections
+                document.querySelectorAll('.download-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(`${btn.dataset.mode}-download`).classList.add('active');
+            });
+        });
+
+        // Copy code function
+        function copyCode(type) {
+            const codeElement = document.getElementById(`${type}-code`);
+            const code = codeElement.textContent.trim();
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const copyBtn = codeElement.previousElementSibling;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
