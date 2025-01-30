@@ -87,7 +87,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 For inquiries or feedback, reach out at:
 - **GitHub**: [Variendarkgirl](https://github.com/variendarkgirl)
-- - **GitHub**: [StrikerOP](https://github.com/str1k3r0p)
+- **GitHub**: [StrikerOP](https://github.com/str1k3r0p)
 
 ---
 
