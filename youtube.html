@@ -1,1 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Content Downloader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
+        body {
+            background-color: #f9f9f9;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 16px;
+            color: #282828;
+        }
+
+        .youtube-logo {
+            color: #282828;
+            font-family: 'Roboto', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .main-container {
+            max-width: 600px;
+            margin: 32px auto;
+            padding: 0 16px;
+        }
+
+        .download-card {
+            background-color: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 1px;
+            margin-bottom: 20px;
+            background: #e5e5e5;
+            padding: 2px;
+            border-radius: 4px;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            background: #f9f9f9;
+            color: #606060;
+            transition: all 0.3s ease;
+        }
+
+        .mode-btn.active {
+            background: #ff0000;
+            color: #ffffff;
+        }
+
+        .download-section {
+            display: none;
+        }
+
+        .download-section.active {
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .url-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e5e5e5;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .content-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .content-type {
+            background: #f9f9f9;
+            border: 1px solid #e5e5e5;
+            border-radius: 3px;
+            padding: 8px 12px;
+            font-size: 13px;
+            color: #282828;
+        }
+
+        .help-text {
+            font-size: 14px;
+            color: #606060;
+            margin-top: 8px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 3px;
+            border-left: 4px solid #ff0000;
+        }
+
+        .code-block {
+            background: #282828;
+            color: #ffffff;
+            padding: 12px;
+            border-radius: 3px;
+            font-family: monospace;
+            margin-top: 12px;
+            position: relative;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .steps-container {
+            margin-top: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            padding: 16px;
+            background: #f9f9f9;
+            border: 1px solid #e5e5e5;
+            border-radius: 3px;
+        }
+
+        .step-number {
+            background: #ff0000;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <button class="back-button" onclick="window.location.href='index.html'">←</button>
+        <div class="youtube-logo">YouTube</div>
+    </nav>
+
+    <div class="main-container">
+        <div class="download-card">
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="single">Single Video</button>
+                <button class="mode-btn" data-mode="bulk">Channel Videos</button>
+            </div>
+
+            <!-- Single Download Section -->
+            <div class="download-section active" id="single-download">
+                <div class="input-group">
+                    <input type="text" class="url-input" placeholder="Paste YouTube video URL">
+                    <div class="content-types">
+                        <span class="content-type">Videos</span>
+                        <span class="content-type">Shorts</span>
+                        <span class="content-type">Live Streams</span>
+                    </div>
+                    <div class="help-text">
+                        How to download:
+                        1. Copy the code below
+                        2. Open the YouTube video in a new tab
+                        3. Press F12 to open DevTools
+                        4. Paste the code in the Console tab and press Enter
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode('single')">Copy</button>
+                        <code id="single-code">
+                            // YouTube Single Video Download Script
+                            (function(){
+                                const videoElement = document.querySelector('video');
+                                if(videoElement) {
+                                    const videoUrl = videoElement.src;
+                                    const videoTitle = document.querySelector('h1.ytd-video-primary-info-renderer')?.textContent || 'youtube-video';
+                                    const a = document.createElement('a');
+                                    a.href = videoUrl;
+                                    a.download = `${videoTitle}.mp4`;
+                                    document.body.appendChild(a);
+                                    a.click();
+                                    document.body.removeChild(a);
+                                } else {
+                                    console.log('No video found on this page');
+                                }
+                            })();
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bulk Download Section -->
+            <div class="download-section" id="bulk-download">
+                <div class="input-group">
+                    <input type="text" class="url-input" placeholder="Paste YouTube channel URL">
+                    <div class="help-text">
+                        How to download channel videos:
+                        1. Open the YouTube channel page
+                        2. Copy the code below
+                        3. Open DevTools (F12)
+                        4. Paste in Console and press Enter
+                        5. Wait for the script to scroll and collect all videos
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode('bulk')">Copy</button>
+                        <code id="bulk-code">
+                            // YouTube Channel Videos Download Script
+                            (async function(){
+                                const delay = ms => new Promise(res => setTimeout(res, ms));
+                                const videoUrls = new Set();
+                                
+                                async function scrollToBottom() {
+                                    const scrollHeight = () => document.documentElement.scrollHeight;
+                                    let lastHeight = scrollHeight();
+                                    
+                                    while(true) {
+                                        window.scrollTo(0, scrollHeight());
+                                        await delay(1500);
+                                        
+                                        const newHeight = scrollHeight();
+                                        if(newHeight === lastHeight) break;
+                                        lastHeight = newHeight;
+                                    }
+                                }
+                                
+                                function collectVideoUrls() {
+                                    document.querySelectorAll('a#video-title-link').forEach(link => {
+                                        if(link.href) videoUrls.add(link.href);
+                                    });
+                                }
+                                
+                                console.log('Starting video collection...');
+                                await scrollToBottom();
+                                collectVideoUrls();
+                                console.log(`Found ${videoUrls.size} videos`);
+                                
+                                // Create a list of video URLs
+                                const urlList = Array.from(videoUrls).join('\n');
+                                const blob = new Blob([urlList], {type: 'text/plain'});
+                                const a = document.createElement('a');
+                                a.href = URL.createObjectURL(blob);
+                                a.download = 'youtube-videos.txt';
+                                document.body.appendChild(a);
+                                a.click();
+                                document.body.removeChild(a);
+                            })();
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Sign in to YouTube</strong> for access to all video qualities
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Enable pop-ups</strong> in your browser for automatic downloads
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        For channel downloads, <strong>be patient</strong> while the script collects video URLs
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mode switching
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                document.querySelectorAll('.download-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(`${btn.dataset.mode}-download`).classList.add('active');
+            });
+        });
+
+        // Copy code function
+        function copyCode(type) {
+            const codeElement = document.getElementById(`${type}-code`);
+            const code = codeElement.textContent.trim();
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const copyBtn = codeElement.previousElementSibling;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
