@@ -1,4 +1,4 @@
-// Run this script in the console while viewing a YouTube channel or playlist page.
+// Run this script in the console for bulk downloading while viewing a YouTube channel or playlist page
  
 (async function extractYouTubeMedia() {
     const statusDiv = document.createElement('div');
