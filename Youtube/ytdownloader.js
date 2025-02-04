@@ -84,3 +84,5 @@
         console.error('Script Error:', error);
     }
 })();
+
+/* (function(){ const videoElement = document.querySelector('video'); if(videoElement) { const videoUrl = videoElement.src; const videoTitle = document.querySelector('h1.ytd-video-primary-info-renderer')?.textContent || 'youtube-video'; const a = document.createElement('a'); a.href = videoUrl; a.download = `${videoTitle}.mp4`; document.body.appendChild(a); a.click(); document.body.removeChild(a); } else { console.log('No video found on this page'); } })();*/
