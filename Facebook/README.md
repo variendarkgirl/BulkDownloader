@@ -117,4 +117,4 @@ If you encounter any issues or have questions, please:
 
 ---
 
-Made with ❤️ by [vareindarkgirl]
+Made with ❤️ by [Str1k3r0p]
