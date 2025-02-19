@@ -91,5 +91,3 @@ For inquiries or feedback, reach out at:
 
 ---
 
-*Replace placeholders such as `path_to_screenshot_1.png`, `your-username`, `your.email@example.com`, and `[your-github-profile]` with actual details relevant to your project.*
-
